@@ -1,13 +1,9 @@
 require 'minitest/autorun'
 
-file = File.readlines(File.join(File.dirname(__FILE__),'input.txt'))
+file = File.read(File.join(File.dirname(__FILE__),'input.txt')).each_line.map(&:split)
 
-def count_passphrase(file)
+def count_passphrase(arr)
   total = 0
-  arr =[]
-  file.each do |line|
-    arr << line.split
-  end
   arr.each do |x|
     if x.uniq.length == x.length
       total += 1
@@ -20,7 +16,7 @@ puts count_passphrase(file)
 
 class Day4Test < MiniTest::Test
   def setup
-    @file = File.readlines(File.join(File.dirname(__FILE__),'test.txt'))
+    @file = File.read(File.join(File.dirname(__FILE__),'test.txt')).each_line.map(&:split)
   end
 
   def test_checksum
