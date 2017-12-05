@@ -6,14 +6,12 @@ def step_counter(arr)
   total = 0
   index = 0
 
-  loop do
+  while index < arr.length
     jump = arr[index]
     arr[index] += 1
     index += jump
     total += 1
-  break if index >= arr.length
   end
-
   total
 end
 
