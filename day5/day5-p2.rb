@@ -26,7 +26,7 @@ class Day5Test < MiniTest::Test
     @file = File.read(File.join(File.dirname(__FILE__),'test.txt')).each_line.map(&:to_i)
   end
 
-  def test_checksum
+  def test_step_counter
     assert_equal  10, step_counter(@file)
   end
 end
