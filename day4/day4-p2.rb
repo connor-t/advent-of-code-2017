@@ -3,19 +3,13 @@ require 'minitest/autorun'
 file = File.readlines(File.join(File.dirname(__FILE__),'input.txt'))
 
 def count_passphrase(file)
-  total = 0
-  arr =[]
+  total, arr = 0, []
   file.each do |line|
     arr << line.split.map do |n|
       n.chars.sort.join
     end
   end
   arr.each do |x|
-    # x.each do |el|
-    #   el = el.chars.sort.join
-    #   puts el
-    # end
-    # puts x[0]
     if x.uniq.length == x.length
       total += 1
     end
